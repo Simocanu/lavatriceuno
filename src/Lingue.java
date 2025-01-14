@@ -1,10 +1,10 @@
 import java.util.HashMap;
 
-public class lingue {
+public class Lingue {
     String linguaCorrente;
     HashMap<String, HashMap<String, String>> contenuto = new HashMap<>();
 
-    public lingue(String linguaCorrente) {
+    public Lingue(String linguaCorrente) {
 
         this.linguaCorrente = linguaCorrente;
         HashMap<String, String> italiano = new HashMap<>();

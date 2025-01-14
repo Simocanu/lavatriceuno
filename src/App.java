@@ -1,12 +1,12 @@
 import java.util.Scanner;
 
 public class App {
-    public static lingue li;
+    public static Lingue li;
 
     public static void main(String[] args) throws Exception {
 
-        li = new lingue("inglese");
-        lavatrice la = new lavatrice();
+        li = new Lingue("inglese");
+        Lavatrice la = new Lavatrice();
         Scanner sc = new Scanner(System.in);
         boolean esci = false;
 
@@ -33,7 +33,7 @@ public class App {
                     mostraMessaggio(la.aggiungidetersivo());
                     break;
                 case 6:
-                    if (la.st == stato.STANDBY) {
+                    if (la.st == StatoLavatrice.STANDBY) {
                         System.out.println("Inserisci la temperatura tra 20 e 90 gradi");
                         scelta = sc.nextInt();
                     }
@@ -57,12 +57,12 @@ public class App {
         sc.close();
     }
 
-    public static void mostraMessaggio(opzioni opzione) {
+    public static void mostraMessaggio(Opzioni opzione) {
         System.out.println(li.translate(opzione.name().toLowerCase()));
     }
 
     //avevo dimenticato che avevamo una funzione a parte per la temperatura
-    public static void mostraTemperatura(int temperatura, opzioni opzione) {
+    public static void mostraTemperatura(int temperatura, Opzioni opzione) {
         System.out.println(li.translatePlaceholder(opzione.name().toLowerCase(), temperatura + ""));
     }
 }

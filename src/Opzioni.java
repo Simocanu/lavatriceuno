@@ -1,4 +1,4 @@
-public enum opzioni {
+public enum Opzioni {
     ACCESO,
     GIA_ACCESO,
     SPENTO,
