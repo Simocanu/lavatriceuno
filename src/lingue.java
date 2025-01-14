@@ -81,9 +81,17 @@ public class lingue {
         contenuto.put("inglese", inglese);
     }
 
-    public String translate(String key, String placeholder) {
-        String risultato = contenuto.get(linguaCorrente).get(key).replace("{temperatura}", placeholder);
-        return risultato;
+    //Faccio un'altro metodo translate per comodità, specifico per temperatura, avremmo dovuto fare un intero sistema
+    //per il placeholder a parte perché appunto metti che sta un pò ovunque e non è solo temperatura, ma evitiamo di
+    //complicarci la vita con un intero sistema a parte
+    public String translatePlaceholder(String key, String placeholder) {
+        return translate(key).replace("{temperatura}", placeholder);
+    }
+
+    //Qui rimuovo il placeholder perché lo voglio lasciare come metodo translate semplice per dove non serve
+    //anche se andava bene tenerlo per tutto in generale
+    public String translate(String key) {
+        return contenuto.get(linguaCorrente).get(key);
     }
 
     public boolean impostalingua(String lingua) {

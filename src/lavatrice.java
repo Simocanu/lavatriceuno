@@ -1,8 +1,7 @@
 public class lavatrice {
-
-    private boolean sportello = false, detersivoPresente = false;
     int temperatura = 20;
     stato st = stato.SPENTA;
+    private boolean sportello = false, detersivoPresente = false;
 
     public opzioni accendi() {
         if (st == stato.SPENTA) {
@@ -93,5 +92,4 @@ public class lavatrice {
         }
         return opzioni.LAVAGGIO_GIA_TERMINATO;
     }
-
 }
