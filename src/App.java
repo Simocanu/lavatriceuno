@@ -1,23 +1,17 @@
 import java.util.Scanner;
 
 public class App {
+    public static lingue li;
+
     public static void main(String[] args) throws Exception {
 
+        li = new lingue("inglese");
         lavatrice la = new lavatrice();
         Scanner sc = new Scanner(System.in);
         boolean esci = false;
 
         while (!esci) {
-            System.out.println("Eccoci alla lavatrice! Che azione vuoi compiere?");
-            System.out.println("1) Accendi lavatrice");
-            System.out.println("2) Spegni lavatrice");
-            System.out.println("3) Apri sportello");
-            System.out.println("4) Chiudi sportello");
-            System.out.println("5) Aggiungi detersivo");
-            System.out.println("6) Imposta la temperatura");
-            System.out.println("7) Avvia il lavaggio");
-            System.out.println("8) Termina il lavaggio");
-            System.out.println("9) Esci");
+            System.out.println(li.translate("menu"));
 
             int scelta = sc.nextInt();
             sc.nextLine();
@@ -41,7 +35,7 @@ public class App {
                 case 6:
                     if (la.st == stato.STANDBY) {
                         System.out.println("Inserisci la temperatura tra 20 e 90 gradi");
-                        scelta = sc.nextInt();                       
+                        scelta = sc.nextInt();
                     }
                     mostraTemperatura(scelta, la.temperatura(scelta));
 
@@ -64,6 +58,10 @@ public class App {
     }
 
     public static void mostraMessaggio(opzioni opzione) {
+        System.out.println(li.translate(opzione.name().toLowerCase()));
+    }
+
+    public static void mostraMess(opzioni opzione) {
         switch (opzione) {
             case ACCESO -> System.out.println("Hai acceso la lavatrice");
             case GIA_ACCESO -> System.out.println("Lavatrice già accesa");
