@@ -1,50 +1,47 @@
 import java.util.Scanner;
 
 public class App {
-    public static Lingue li;
-
-    public static void main(String[] args) throws Exception {
-
-        li = new Lingue("inglese");
+    public static void main(String[] args) {
+        Lingue lingue = new Lingue("inglese");
         Lavatrice la = new Lavatrice();
         Scanner sc = new Scanner(System.in);
         boolean esci = false;
 
         while (!esci) {
-            System.out.println(li.translate("menu"));
+            System.out.println(lingue.translate("menu"));
 
             int scelta = sc.nextInt();
             sc.nextLine();
 
             switch (scelta) {
                 case 1:
-                    mostraMessaggio(la.accendi());
+                    lingue.translate(la.accendi().name().toLowerCase());
                     break;
                 case 2:
-                    mostraMessaggio(la.spegni());
+                    lingue.translate(la.spegni().name().toLowerCase());
                     break;
                 case 3:
-                    mostraMessaggio(la.aprisportello());
+                    lingue.translate(la.aprisportello().name().toLowerCase());
                     break;
                 case 4:
-                    mostraMessaggio(la.chiudisportello());
+                    lingue.translate(la.chiudisportello().name().toLowerCase());
                     break;
                 case 5:
-                    mostraMessaggio(la.aggiungidetersivo());
+                    lingue.translate(la.aggiungidetersivo().name().toLowerCase());
                     break;
                 case 6:
                     if (la.st == StatoLavatrice.STANDBY) {
-                        System.out.println(li.translate("chiedi_temperatura"));
+                        System.out.println(lingue.translate("chiedi_temperatura"));
                         scelta = sc.nextInt();
                     }
-                    mostraTemperatura(scelta, la.temperatura(scelta));
+                    lingue.translatePlaceholder(la.temperatura(scelta).name().toLowerCase(), scelta + "");
 
                     break;
                 case 7:
-                    mostraMessaggio(la.avvialavaggio());
+                    lingue.translate(la.avvialavaggio().name().toLowerCase());
                     break;
                 case 8:
-                    mostraMessaggio(la.terminalavaggio());
+                    lingue.translate(la.terminalavaggio().name().toLowerCase());
                     break;
                 case 9:
                     System.out.println("Arrivederci.");
@@ -57,12 +54,4 @@ public class App {
         sc.close();
     }
 
-    public static void mostraMessaggio(Opzioni opzione) {
-        System.out.println(li.translate(opzione.name().toLowerCase()));
-    }
-
-    //avevo dimenticato che avevamo una funzione a parte per la temperatura
-    public static void mostraTemperatura(int temperatura, Opzioni opzione) {
-        System.out.println(li.translatePlaceholder(opzione.name().toLowerCase(), temperatura + ""));
-    }
 }
