@@ -65,40 +65,4 @@ public class App {
     public static void mostraTemperatura(int temperatura, opzioni opzione) {
         System.out.println(li.translatePlaceholder(opzione.name().toLowerCase(), temperatura + ""));
     }
-
-    public static void mostraMess(opzioni opzione) {
-        switch (opzione) {
-            case ACCESO -> System.out.println("Hai acceso la lavatrice");
-            case GIA_ACCESO -> System.out.println("Lavatrice già accesa");
-            case SPENTO -> System.out.println("Hai spento la lavatrice");
-            case GIA_SPENTO -> System.out.println("Lavatrice già spenta");
-            case SPORTELLO_APERTO -> System.out.println("Hai aperto lo sportello");
-            case SPORTELLO_GIA_APERTO -> System.out.println("Lo sportello è già aperto.");
-            case LAVAGGIO_IN_CORSO ->
-                    System.out.println("La lavatrice non deve essere in corso di lavaggio se vuoi aprire lo sportello!");
-            case SPORTELLO_CHIUSO -> System.out.println("Hai chiuso lo sportello");
-            case SPORTELLO_GIA_CHIUSO -> System.out.println("Lo sportello è già chiuso");
-            case DETERSIVO_AGGIUNTO -> System.out.println("Hai aggiunto il detersivo");
-            case DETERSIVO_GIA_AGGIUNTO -> System.out.println("Il detersivo è già stato aggiunto!");
-            case LAVAGGIO_AVVIATO -> System.out.println("Hai avviato il lavaggio");
-            case SPORTELLO_LAVAGGIO -> System.out.println("Per avviare il lavaggio lo sportello deve essere chiuso!");
-            case DETERSIVO_LAVAGGIO -> System.out.println("Per avviare il lavaggio il detersivo deve essere presente!");
-            case ACCESO_LAVAGGIO -> System.out.println("Per avviare il lavaggio la lavatrice deve essere accesa!");
-            case LAVAGGIO_TERMINATO -> System.out.println("Hai terminato il lavaggio");
-            case LAVAGGIO_GIA_TERMINATO -> System.out.println("Il lavaggio dev'essere in corso per poterlo terminare");
-            default -> System.out.println("Opzione non valida.");
-        }
-    }
-
-    public static void mostraTempeffafaferatura(int temperatura, opzioni opzione) {
-        switch (opzione) {
-            case TEMPERATURA_IMPOSTATA ->
-                    System.out.println("Hai impostato la temperatura a: " + temperatura + " gradi");
-            case TEMPERATURA_NON_VALIDA ->
-                    System.out.println("Inserisci una temperatura valida (tra i 20 e i 90 gradi)");
-            case TEMPERATURA_NON_IMPOSTABILE ->
-                    System.out.println("La lavatrice dev'essere STANDBY per poter impostare la temperatura");
-            default -> System.out.println("No.");
-        }
-    }
 }
