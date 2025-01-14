@@ -6,32 +6,20 @@ public class lavatrice {
     int temperatura = 20;
     stato st = stato.SPENTA;
 
-    public void accendi() {
+    public boolean accendi() {
         if (st == stato.SPENTA) {
-            System.out.println(" ");
-            System.out.println("Hai acceso la lavatrice");
-            System.out.println(" ");
             st = stato.STANDBY;
-        } else {
-            System.out.println(" ");
-            System.out.println("Lavatrice già accesa");
-            System.out.println(" ");
+            return true;
         }
-
+        return false;
     }
 
-    public void spegni() {
+    public boolean spegni() {
         if (st != stato.SPENTA) {
-            System.out.println(" ");
-            System.out.println("Hai spento la lavatrice");
-            System.out.println(" ");
             st = stato.SPENTA;
-        } else {
-            System.out.println(" ");
-            System.out.println("Lavatrice già spenta");
-            System.out.println(" ");
+            return true;
         }
-
+        return false;
     }
 
     public void aprisportello() {
@@ -55,17 +43,12 @@ public class lavatrice {
 
     }
 
-    public void chiudisportello() {
+    public boolean chiudisportello() {
         if (sportello) {
-            System.out.println(" ");
-            System.out.println("Hai chiuso lo sportello");
-            System.out.println(" ");
             sportello = false;
-        } else {
-            System.out.println(" ");
-            System.out.println("Lo sportello è già chiuso");
-            System.out.println(" ");
+            return true;
         }
+        return false;
 
     }
 
@@ -124,19 +107,12 @@ public class lavatrice {
         }
     }
 
-    public void terminalavaggio() {
+    public boolean terminalavaggio() {
         if (st == stato.LAVAGGIO_IN_CORSO) {
-            System.out.println(" ");
-            System.out.println("Hai terminato il lavaggio");
-            System.out.println(" ");
             st = stato.STANDBY;
-        } else {
-            System.out.println(" ");
-            System.out.println("Il lavaggio dev'essere in corso per poterlo terminare");
-            System.out.println(" ");
-
+            return true;
         }
-
+        return false;
     }
 
 }

@@ -1,3 +1,3 @@
-public enum boh {
+public enum opzioni {
 
 }

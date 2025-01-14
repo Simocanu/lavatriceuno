@@ -24,16 +24,41 @@ public class App {
 
             switch (scelta) {
                 case 1:
-                    la.accendi();
+                    if (la.accendi()) {
+                        System.out.println(" ");
+                        System.out.println("Hai acceso la lavatrice");
+                        System.out.println(" ");
+                    } else {
+                        System.out.println(" ");
+                        System.out.println("Lavatrice già accesa");
+                        System.out.println(" ");
+                    }
+
                     break;
                 case 2:
-                    la.spegni();
+                    if (la.spegni()) {
+                        System.out.println(" ");
+                        System.out.println("Hai spento la lavatrice");
+                        System.out.println(" ");
+                    } else {
+                        System.out.println(" ");
+                        System.out.println("Lavatrice già spenta");
+                        System.out.println(" ");
+                    }
                     break;
                 case 3:
                     la.aprisportello();
                     break;
                 case 4:
-                    la.chiudisportello();
+                    if (la.chiudisportello()) {
+                        System.out.println(" ");
+                        System.out.println("Hai chiuso lo sportello");
+                        System.out.println(" ");
+                    } else {
+                        System.out.println(" ");
+                        System.out.println("Lo sportello è già chiuso");
+                        System.out.println(" ");
+                    }
                     break;
                 case 5:
                     if (la.aggiungidetersivo()) {
@@ -55,7 +80,15 @@ public class App {
                     la.avvialavaggio();
                     break;
                 case 8:
-                    la.terminalavaggio();
+                    if (la.terminalavaggio()) {
+                        System.out.println(" ");
+                        System.out.println("Hai terminato il lavaggio");
+                        System.out.println(" ");
+                    } else {
+                        System.out.println(" ");
+                        System.out.println("Il lavaggio dev'essere in corso per poterlo terminare");
+                        System.out.println(" ");
+                    }
                     break;
                 case 9:
                     System.out.println("Arrivederci.");
