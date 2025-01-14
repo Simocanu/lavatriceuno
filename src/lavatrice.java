@@ -1,118 +1,97 @@
-import java.util.Scanner;
-
 public class lavatrice {
 
     private boolean sportello = false, detersivoPresente = false;
     int temperatura = 20;
     stato st = stato.SPENTA;
 
-    public boolean accendi() {
+    public opzioni accendi() {
         if (st == stato.SPENTA) {
             st = stato.STANDBY;
-            return true;
+            return opzioni.ACCESO;
         }
-        return false;
+        return opzioni.GIA_ACCESO;
     }
 
-    public boolean spegni() {
+    public opzioni spegni() {
         if (st != stato.SPENTA) {
             st = stato.SPENTA;
-            return true;
+            return opzioni.SPENTO;
         }
-        return false;
+        return opzioni.GIA_SPENTO;
     }
 
-    public void aprisportello() {
+    public opzioni aprisportello() {
         if (stato.LAVAGGIO_IN_CORSO != st) {
             if (!sportello) {
-                System.out.println(" ");
-                System.out.println("Hai aperto lo sportello");
-                System.out.println(" ");
                 sportello = true;
+                return opzioni.SPORTELLO_APERTO;
             } else {
-                System.out.println(" ");
-                System.out.println("Lo sportello è già aperto.");
-                System.out.println(" ");
+                return opzioni.SPORTELLO_GIA_APERTO;
             }
 
         } else {
-            System.out.println(" ");
-            System.out.println("La lavatrice non deve essere in corso di lavaggio se vuoi aprire lo sportello!");
-            System.out.println(" ");
+            return opzioni.LAVAGGIO_IN_CORSO;
         }
 
     }
 
-    public boolean chiudisportello() {
+    public opzioni chiudisportello() {
         if (sportello) {
             sportello = false;
-            return true;
+            return opzioni.SPORTELLO_CHIUSO;
         }
-        return false;
+        return opzioni.SPORTELLO_GIA_CHIUSO;
 
     }
 
-    public boolean aggiungidetersivo() {
+    public opzioni aggiungidetersivo() {
         if (!detersivoPresente) {
             detersivoPresente = true;
-            return true;
+            return opzioni.DETERSIVO_AGGIUNTO;
         }
-        return false;
+        return opzioni.DETERSIVO_GIA_AGGIUNTO;
     }
 
-    public void temperatura(int temperaturapp) {
+    public opzioni temperatura(int temperaturapp) {
         if (st == stato.STANDBY) {
             if (temperaturapp >= 20 && temperaturapp <= 90) {
                 temperatura = temperaturapp;
-                System.out.println(" ");
-                System.out.println("Hai impostato la temperatura a: " + temperatura + " gradi");
-                System.out.println(" ");
+
+                return opzioni.TEMPERATURA_IMPOSTATA;
             } else {
-                System.out.println(" ");
-                System.out.println("Inserisci una temperatura valida (tra i 20 e i 90 gradi)");
-                System.out.println(" ");
+
+                return opzioni.TEMPERATURA_NON_VALIDA;
             }
         } else {
-            System.out.println(" ");
-            System.out.println("La lavatrice dev'essere STANDBY per poter impostare la temperatura");
-            System.out.println(" ");
+            return opzioni.TEMPERATURA_NON_IMPOSTABILE;
         }
 
     }
 
-    public void avvialavaggio() {
+    public opzioni avvialavaggio() {
         if (st == stato.STANDBY) {
             if (detersivoPresente) {
                 if (!sportello) {
-                    System.out.println(" ");
-                    System.out.println("Hai avviato il lavaggio a: " + temperatura + " gradi");
-                    System.out.println(" ");
-
                     st = stato.LAVAGGIO_IN_CORSO;
+                    return opzioni.LAVAGGIO_AVVIATO;
                 } else {
-                    System.out.println(" ");
-                    System.out.println("Per avviare il lavaggio lo sportello deve essere chiuso!");
-                    System.out.println("");
+                    return opzioni.SPORTELLO_LAVAGGIO;
                 }
             } else {
-                System.out.println(" ");
-                System.out.println("Per avviare il lavaggio il detersivo deve essere presente!");
-                System.out.println(" ");
 
+                return opzioni.DETERSIVO_LAVAGGIO;
             }
         } else {
-            System.out.println(" ");
-            System.out.println("Per avviare il lavaggio la lavatrice deve essere accesa!");
-            System.out.println(" ");
+            return opzioni.ACCESO_LAVAGGIO;
         }
     }
 
-    public boolean terminalavaggio() {
+    public opzioni terminalavaggio() {
         if (st == stato.LAVAGGIO_IN_CORSO) {
             st = stato.STANDBY;
-            return true;
+            return opzioni.LAVAGGIO_TERMINATO;
         }
-        return false;
+        return opzioni.LAVAGGIO_GIA_TERMINATO;
     }
 
 }
