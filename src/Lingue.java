@@ -20,6 +20,7 @@ public class Lingue {
                 "8) Termina il lavaggio\n" +
                 "9) Esci");
 
+        italiano.put("chiedi_temperatura", "Inserisci la temperatura (valida tra 20 e 90 gradi)");
         italiano.put("acceso", "Hai acceso la lavatrice");
         italiano.put("gia_acceso", "Lavatrice già accesa");
         italiano.put("spento", "Hai spento la lavatrice");
@@ -57,6 +58,7 @@ public class Lingue {
                 "8) End the washing cycle\n" +
                 "9) Exit");
 
+        inglese.put("chiedi_temperatura", "Enter the temperature (valid between 20 and 90 degrees)");
         inglese.put("acceso", "You have turned on the washing machine");
         inglese.put("gia_acceso", "The washing machine is already on");
         inglese.put("spento", "You have turned off the washing machine");

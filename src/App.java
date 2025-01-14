@@ -34,7 +34,7 @@ public class App {
                     break;
                 case 6:
                     if (la.st == StatoLavatrice.STANDBY) {
-                        System.out.println("Inserisci la temperatura tra 20 e 90 gradi");
+                        System.out.println(li.translate("chiedi_temperatura"));
                         scelta = sc.nextInt();
                     }
                     mostraTemperatura(scelta, la.temperatura(scelta));
