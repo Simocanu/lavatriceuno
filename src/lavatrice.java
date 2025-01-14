@@ -69,11 +69,12 @@ public class lavatrice {
 
     }
 
-    public void aggiungidetersivo() {
-        System.out.println(" ");
-        System.out.println("Hai aggiunto il detersivo");
-        System.out.println(" ");
-        detersivoPresente = true;
+    public boolean aggiungidetersivo() {
+        if (!detersivoPresente) {
+            detersivoPresente = true;
+            return true;
+        }
+        return false;
     }
 
     public void temperatura(int temperaturapp) {

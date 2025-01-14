@@ -36,7 +36,12 @@ public class App {
                     la.chiudisportello();
                     break;
                 case 5:
-                    la.aggiungidetersivo();
+                    if (la.aggiungidetersivo()) {
+                        System.out.println("Hai aggiunto il detersivo");
+                    } else {
+                        System.out.println("Il detersivo è già stato aggiunto!");
+                    }
+
                     break;
                 case 6:
                     System.out.println(" ");
