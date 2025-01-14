@@ -74,16 +74,16 @@ public class lingue {
         inglese.put("acceso_lavaggio", "To start the wash, the washing machine must be on!");
         inglese.put("lavaggio_terminato", "You have finished the wash");
         inglese.put("lavaggio_gia_terminato", "The wash must be in progress to finish it");
-        inglese.put("temperatura_impostata", "You have set the temperature to: {temperature} degrees");
+        inglese.put("temperatura_impostata", "You have set the temperature to: {temperatura} degrees");
         inglese.put("temperatura_non_valida", "Enter a valid temperature (between 20 and 90 degrees)");
         inglese.put("temperatura_non_impostabile",
                 "The washing machine must be in STANDBY mode to set the temperature");
         contenuto.put("inglese", inglese);
     }
 
-    public String translate(String key) {
-
-        return contenuto.get(linguaCorrente).get(key);
+    public String translate(String key, String placeholder) {
+        String risultato = contenuto.get(linguaCorrente).get(key).replace("{temperatura}", placeholder);
+        return risultato;
     }
 
     public boolean impostalingua(String lingua) {
